@@ -306,8 +306,20 @@ sub mirror {
         or _croak(qq/Error: Caught error closing temporary file $tempfile: $!\n/);
 
     if ( $response->{success} ) {
-        rename $tempfile, $file
-            or _croak(qq/Error replacing $file with $tempfile: $!\n/);
+        my $err;
+        for ( 0 .. 1 ) {
+            eval {
+                rename $tempfile, $file
+                    or _croak(qq/Error replacing $file with $tempfile: $!\n/);
+            };
+            # Retry if failed, but with a delay in case the state needs to
+            # settle. This is for timing issues on Win32 where the filehandle
+            # might not be closed before the rename.
+            $err = $@;
+            last unless $err;
+            sleep 1;
+        }
+        _croak($err) if $err;
         my $lm = $response->{headers}{'last-modified'};
         if ( $lm and my $mtime = $self->_parse_http_date($lm) ) {
             utime $mtime, $mtime, $file;
