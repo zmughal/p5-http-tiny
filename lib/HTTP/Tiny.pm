@@ -318,6 +318,7 @@ sub mirror {
             $err = $@;
             last unless $err;
             sleep 1;
+            print "Rename failed, retrying: $err\n";
         }
         _croak($err) if $err;
         my $lm = $response->{headers}{'last-modified'};
