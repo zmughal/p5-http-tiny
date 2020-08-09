@@ -1,0 +1,68 @@
+{
+   "abstract" : "A small, simple, correct HTTP/1.1 client",
+   "author" : [
+      "Christian Hansen <chansen@cpan.org>, David Golden <dagolden@cpan.org>"
+   ],
+   "dynamic_config" : 1,
+   "generated_by" : "ExtUtils::MakeMaker version 7.46, CPAN::Meta::Converter version 2.150010",
+   "license" : [
+      "perl_5"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : 2
+   },
+   "name" : "HTTP-Tiny",
+   "no_index" : {
+      "directory" : [
+         "t",
+         "inc"
+      ]
+   },
+   "prereqs" : {
+      "build" : {
+         "requires" : {
+            "ExtUtils::MakeMaker" : "0"
+         }
+      },
+      "configure" : {
+         "requires" : {
+            "ExtUtils::MakeMaker" : "6.17"
+         }
+      },
+      "runtime" : {
+         "requires" : {
+            "Carp" : "0",
+            "Fcntl" : "0",
+            "IO::Socket" : "0",
+            "MIME::Base64" : "0",
+            "Socket" : "0",
+            "Time::Local" : "0",
+            "bytes" : "0",
+            "perl" : "5.006",
+            "strict" : "0",
+            "warnings" : "0"
+         }
+      },
+      "test" : {
+         "requires" : {
+            "Data::Dumper" : "0",
+            "Exporter" : "0",
+            "ExtUtils::MakeMaker" : "0",
+            "File::Basename" : "0",
+            "File::Spec" : "0",
+            "File::Temp" : "0",
+            "IO::Dir" : "0",
+            "IO::File" : "0",
+            "IO::Socket::INET" : "0",
+            "IPC::Cmd" : "0",
+            "Test::More" : "0.96",
+            "lib" : "0",
+            "open" : "0"
+         }
+      }
+   },
+   "release_status" : "stable",
+   "version" : "0.077",
+   "x_serialization_backend" : "JSON::PP version 4.04"
+}
